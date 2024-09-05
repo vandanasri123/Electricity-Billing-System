@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Electricity Billing System</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Electricity Billing System</h1>
+        <form>
+            <label for="name">Customer Name:</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="units">Units Consumed:</label>
+            <input type="number" id="units" name="units" required>
+
+            <label for="rate">Rate per Unit:</label>
+            <input type="number" id="rate" name="rate" required>
+
+            <button type="button" onclick="calculateBill()">Calculate Bill</button>
+
+            <div id="result"></div>
+        </form>
+    </div>
+
+    <script>
+        function calculateBill() {
+            const units = document.getElementById('units').value;
+            const rate = document.getElementById('rate').value;
+
+            if (units && rate) {
+                const totalBill = units * rate;
+                document.getElementById('result').innerHTML = `<h2>Total Bill: $${totalBill.toFixed(2)}</h2>`;
+            } else {
+                document.getElementById('result').innerHTML = `<h2>Please fill in all fields.</h2>`;
+            }
+        }
+    </script>
+</body>
+</html>
